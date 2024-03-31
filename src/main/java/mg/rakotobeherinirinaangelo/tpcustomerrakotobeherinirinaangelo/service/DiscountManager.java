@@ -26,7 +26,8 @@ public class DiscountManager {
     }
 
     public List<Discount> getAllDiscounts() {
-        Query query = em.createNamedQuery("Discount.findAll");
+        Query query = em.createNamedQuery("Discount.findAllAsc");
+        //Query query = em.createNamedQuery("Discount.findAllDesc");
         return query.getResultList();
     }
 }

@@ -25,6 +25,10 @@ import java.util.Collection;
 @Table(name = "discount")
 @NamedQueries({
     @NamedQuery(name = "Discount.findAll", query = "SELECT d FROM Discount d"),
+    // Triees par ordre croissant
+    @NamedQuery(name = "Discount.findAllAsc", query = "SELECT d FROM Discount d order by d.rate asc"),
+    // Triees par ordre decroissant
+    @NamedQuery(name = "Discount.findAllDesc", query = "SELECT d FROM Discount d order by d.rate DESC"),
     @NamedQuery(name = "Discount.findByCode", query = "SELECT d FROM Discount d WHERE d.code = :code"),
     @NamedQuery(name = "Discount.findByRate", query = "SELECT d FROM Discount d WHERE d.rate = :rate")})
 public class Discount implements Serializable {
@@ -95,5 +99,5 @@ public class Discount implements Serializable {
     public String toString() {
         return "mg.rakotobeherinirinaangelo.tpcustomerrakotobeherinirinaangelo.entity.Discount[ code=" + code + " ]";
     }
-    
+
 }
