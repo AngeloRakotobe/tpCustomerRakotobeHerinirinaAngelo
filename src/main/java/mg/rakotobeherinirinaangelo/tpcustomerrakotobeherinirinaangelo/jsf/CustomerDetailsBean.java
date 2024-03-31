@@ -10,6 +10,9 @@ import jakarta.inject.Named;
 import java.io.Serializable;
 import jakarta.inject.Inject;
 import jakarta.faces.view.ViewScoped;
+import java.util.List;
+import mg.rakotobeherinirinaangelo.tpcustomerrakotobeherinirinaangelo.entity.Discount;
+import mg.rakotobeherinirinaangelo.tpcustomerrakotobeherinirinaangelo.service.DiscountManager;
 
 /**
  *
@@ -24,9 +27,15 @@ public class CustomerDetailsBean implements Serializable {
 
     @Inject
     private CustomerManager customerManager;
+    @Inject
+    private DiscountManager discountManager;
 
     public int getIdCustomer() {
         return idCustomer;
+    }
+
+    public List<Discount> getDiscounts() {
+        return discountManager.getAllDiscounts();
     }
 
     public void setIdCustomer(int idCustomer) {
